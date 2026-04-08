@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jinming | Data Science</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #4f8ef7;
+      --accent-light: #e8f0fe;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --card-bg: #f9fafb;
+      --border: #e5e7eb;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 20px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero .handle {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      margin-left: 10px;
+    }
+
+    /* ── Section ── */
+    section {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    section h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Skills ── */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .skill-tag.learning {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* ── Projects ── */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(79, 142, 247, 0.1);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .wip {
+      font-size: 0.75rem;
+      background: #fff3cd;
+      color: #856404;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    /* ── About ── */
+    .about p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .btn-outline { margin-left: 0; margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a class="logo" href="#">Jinming</a>
+      <div>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/jinmaruko" target="_blank">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" style="border-top: none;">
+      <div class="hero-tag">Learning &amp; Building</div>
+      <h1>Hi, I'm <span>Jinming</span></h1>
+      <p class="handle">@jinmaruko</p>
+      <p>
+        正在学习 Python 和数据科学，对数据分析、机器学习感兴趣。
+        目标是进入数据分析 / 数据科学相关岗位。
+      </p>
+      <a class="btn" href="#projects">查看项目</a>
+      <a class="btn btn-outline" href="https://github.com/jinmaruko" target="_blank">GitHub</a>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2>技能</h2>
+      <div class="skills">
+        <span class="skill-tag learning">Python 🔥 学习中</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">统计学</span>
+        <span class="skill-tag">PCA / ICA</span>
+        <span class="skill-tag">数据可视化</span>
+        <span class="skill-tag learning">pandas 🔥 学习中</span>
+        <span class="skill-tag learning">scikit-learn 🔥 学习中</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>项目</h2>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>波士顿房价分析：PCA vs Fast ICA</h3>
+          <span class="wip">整理中</span>
+        </div>
+        <p>
+          毕业论文项目。使用波士顿房价数据集，对比 PCA 与 Fast ICA
+          两种降维算法在房价预测任务中的表现，分析两者在不同假设条件下的差异。
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">R</span>
+          <span class="project-tag">PCA</span>
+          <span class="project-tag">Fast ICA</span>
+          <span class="project-tag">降维</span>
+          <span class="project-tag">房价预测</span>
+        </div>
+      </div>
+
+      <!-- 未来项目占位 -->
+      <div class="project-card" style="border-style: dashed; opacity: 0.5;">
+        <h3>更多项目即将到来…</h3>
+        <p>正在学习 Python，将用 pandas + scikit-learn 重构上面的项目，敬请期待。</p>
+      </div>
+
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <h2>关于我</h2>
+      <p>
+        本科毕业，毕业论文方向为机器学习降维算法比较研究。
+        目前正在系统学习 Python 数据科学栈，目标是从事数据分析或数据科学相关工作。
+      </p>
+      <p>
+        感兴趣的方向：数据分析 · 机器学习 · 特征工程 · 数据可视化
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built with HTML · Hosted on GitHub Pages · © 2024 Jinming</p>
+  </footer>
+
+</body>
+</html>
